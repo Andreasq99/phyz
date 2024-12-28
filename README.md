@@ -1,4 +1,5 @@
 # Phyz
+![](./images/phyz_gif.gif)
 # Table of Contents
 1. [Description](#description)
 2. [Installation](#installation)

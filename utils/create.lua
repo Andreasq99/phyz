@@ -16,14 +16,15 @@ end
 
 function createRect(w)
     rect = {}
-    rect.x = 200 + love.math.random(1520)
-    rect.y = 100 + love.math.random(880)
+    rect.x = 200 + love.math.random(love.graphics.getWidth()-200)
+    rect.y = 100 + love.math.random(love.graphics.getHeight()-100)
     rect.w = w
-    rect.vx = love.math.random(30)/10
-    if love.math.random(2) == 1 then rect.vx = -rect.vx end
-    rect.vy = love.math.random(30)/10
-    if love.math.random(2) == 1 then rect.vy = -rect.vy end
-    
+    -- rect.vx = love.math.random(30)/10
+    -- if love.math.random(2) == 1 then rect.vx = -rect.vx end
+    -- rect.vy = love.math.random(30)/10
+    -- if love.math.random(2) == 1 then rect.vy = -rect.vy end
+    rect.vx = 0
+    rect.vy = 0
     rect.r = love.math.random(10)/10
     rect.g = love.math.random(10)/10
     rect.b = love.math.random(10)/10

@@ -31,7 +31,7 @@ function love.load()
     framecount = 0
     inertial = false
     trackcount = 10
-    solarsys()
+    -- solarsys()
 end
 
 function love.keypressed(key)
@@ -210,12 +210,23 @@ function solarsys()
     end
     for i = 1,love.math.randomNormal(5,20) do
         local r = defaultRect()
-        vel = math.sqrt(r.vx^2 + r.vy^2)
-        dist = math.sqrt((r.x-400)^2+(r.y-300)^2)
-        r.vx = - r.y *vel/ dist
-        r.vy = r.x *vel/dist
+        r.vx = 0
+        r.vy = 0
         -- r.age = 0
         table.insert(lor, r)
+    end
+end
+
+function garbageCollect()
+    if #path > 1000*trackcount then
+        for i = 1,trackcount do
+            table.remove(path,1)
+        end
+    end
+    if #lor > 200 then
+        for i = 200,#lor do
+            table.remove(lor,#lor)
+        end
     end
 end
 
@@ -238,19 +249,6 @@ function love.update(dt)
     end
     step()
     framecount = framecount + 1
-end
-
-function garbageCollect()
-    if #path > 1000*trackcount then
-        for i = 1,trackcount do
-            table.remove(path,1)
-        end
-    end
-    if #lor > 200 then
-        for i = 200,#lor do
-            table.remove(lor,#lor)
-        end
-    end
 end
 
 function love.draw()
