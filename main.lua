@@ -3,26 +3,21 @@ require './utils/create'
 require './utils/stats'
 require './utils/path'
 
-function love.load()
-    lor = {}
-    G = 1
-    path = {}
-    lormax = 0
-    lormean = 0
-    framecount = 0
-    inertial = false
-    trackcount = 2
-    tracktab = {}
-    rml = {}
-end
+
 
 function love.keypressed(key)
-    if key == "escape" or key == "space" then
+    if key == "escape" then
         love.event.quit()
     elseif key == "return" then
         love.load()
     elseif key == "=" then
         camTrack()
+    elseif key == "space" then
+        if love.update == run then
+            love.update = pause
+        else
+            love.update = run
+        end
     end
 end
 
@@ -126,7 +121,11 @@ function garbageCollect()
     rml = {}
 end
 
-function love.update(dt)
+pause = function (dt)
+    
+end
+
+run = function (dt)
     -- if love.math.random(1) == 1 then newBall() end 
     for i=1,love.math.random(10) do newBall() end
     pushBalls()
@@ -149,6 +148,9 @@ function love.update(dt)
     end
     step()
     framecount = framecount + 1
+    if not love.window.hasFocus() then
+        love.update = pause
+    end
 end
 
 function love.draw()
@@ -165,4 +167,18 @@ function love.draw()
     end
 
     lormax, lormean = stats(lor,lormax,lormean,framecount)
+end
+
+function love.load()
+    lor = {}
+    G = 1
+    path = {}
+    lormax = 0
+    lormean = 0
+    framecount = 0
+    inertial = false
+    trackcount = 2
+    tracktab = {}
+    rml = {}
+    love.update = run
 end
