@@ -1,2 +1,4 @@
 test/
 *.love
+*.bat
+bin/*
