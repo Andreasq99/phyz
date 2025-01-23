@@ -14,7 +14,7 @@ A sandbox for writing physics simulators. Written using the LÖVE API for Lua.
 
 ## Installation <a name="installation"></a>
 ### Download Executable   
-To download the finished app, simply download phyz.exe from the root directory. Other apps can be found in their respective directories.   
+To download the finished app, simply download phyz.exe from the bin directory. Other apps can be found in their respective directories.   
 ### Install Screen Saver   
 To install the program as a screen saver, download the phyz.scr app, right click, and select install.   
 ### Forking   

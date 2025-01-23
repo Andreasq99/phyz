@@ -6,7 +6,7 @@ function traceBall(ball, tab)
     point.g = ball.g
     point.b = ball.b
     table.insert(tab, point)
-    
+    return tab
 end
 
 function drawPath(tab)
