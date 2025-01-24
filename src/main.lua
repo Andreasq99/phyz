@@ -152,7 +152,6 @@ pause = function (dt) end
 
 run = function (dt)
     if love.math.random(spontFactor) == 1 then newBall() end 
-    -- for i=1,love.math.random(10) do newBall() end
     pushBalls()
     if #tracktab >= trackcount then
         for i,j in ipairs(tracktab) do
@@ -207,21 +206,25 @@ end
 
 function love.load()
     lor = {}
-    G = 1/(50*math.random(4))
     path = {}
+    tracktab = {}
+    rml = {}
+
     lormax = 0
     lormean = 0
     framecount = 0
-    inertial = false
     trackcount = 5
-    tracktab = {}
-    camTrackInd = -1
-    rml = {}
+    
     love.update = run
-
-    spectatorMode = true
-    spontFactor = love.math.random(10)
-    bounceFactor = (-1)^love.math.random(2)
+    
+    camTrackInd = -1
     camTrack = camTrackTable[1]
     camTrackTimeout = -1
+
+    spectatorMode = true
+
+    spontFactor = love.math.random(10)
+    bounceFactor = (-1)^love.math.random(2)
+    G = 1/(50*math.random(4))
+    
 end
