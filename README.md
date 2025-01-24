@@ -14,7 +14,7 @@ A simple n-body physics simulator. Written using the LÖVE API for Lua. I also u
 
 ## Installation <a name="installation"></a>
 ### Download Executable   
-To download the finished app, simply download phyz.exe from the bin directory. Other apps can be found in their respective directories. 
+To download the finished app, simply download Phyz.exe from the root directory.
 ### Install Screen Saver   
 To install the program as a screen saver, download the phyz.scr app, right click, and select install.   
 ### Forking   
