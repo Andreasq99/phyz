@@ -1,4 +1,4 @@
 test/
 *.love
 *.bat
-*.exe
+bin/

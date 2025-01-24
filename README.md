@@ -10,11 +10,11 @@
 7. [Questions](#questions)
 
 ## Description <a name="description"></a>
-A sandbox for writing physics simulators. Written using the LÖVE API for Lua.
+A simple n-body physics simulator. Written using the LÖVE API for Lua. I also use this as a background when I stream video games!
 
 ## Installation <a name="installation"></a>
 ### Download Executable   
-To download the finished app, simply download phyz.exe from the bin directory. Other apps can be found in their respective directories.   
+To download the finished app, simply download phyz.exe from the bin directory. Other apps can be found in their respective directories. 
 ### Install Screen Saver   
 To install the program as a screen saver, download the phyz.scr app, right click, and select install.   
 ### Forking   
