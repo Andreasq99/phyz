@@ -25,7 +25,15 @@ Just install and run! If you are using the source code, once you have LÖVE inst
 
 If you'd like to compile your code into a new executable, begin by copying the relevant files to ```~/build/build-staging```. 
 
-Now edit makeLove.batEXAMPLE and change ```Path-to-your-build-directory``` on line 1 to the path to that directory in your computer. For example, the first line of my build file reads ```cd C:\Users\Andreas\GitHub\Phyz\build```. Similarly, you'll want to replace ```Path-to-your-love.exe``` on line 5 with the path to your love executable. Now rename the file to makeLove.bat, and running it will create the new executable in your bin folder!
+Now edit makeLove.batEXAMPLE and change ```Path-to-your-build-directory``` on line 1 to the path to that directory in your computer. For example, the first line of my build file reads 
+
+    cd C:\Users\Andreas\GitHub\Phyz\build 
+
+Similarly, you'll want to replace ```Path-to-your-love.exe``` on line 5 with the path to your love executable For example,
+
+    copy /b "C:\Program Files\LOVE\love.exe"+".\Phyz.love" "..\bin\Phyz.exe"
+
+Now rename the file to makeLove.bat, and running it will create the new executable in your bin folder!
 
 ## Contributing <a name="contributing"></a>
 You may fork and branch this project as you wish. I will accept pull requests as I see fit.
