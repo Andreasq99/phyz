@@ -1,0 +1,6 @@
+cd &::Path-to-your-build-directory
+powershell -command "Compress-Archive -Path '.\build-staging\*' -DestinationPath '.\Phyz.zip'"
+cmd /c "ren Phyz.zip Phyz.love"
+del "./Phyz.zip"
+copy /b "C:\Program Files\LOVE\love.exe"+".\Phyz.love" "..\bin\Phyz.exe"
+del "./Phyz.love"
