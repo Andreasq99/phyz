@@ -21,13 +21,16 @@ function love.keypressed(key)
     end
 end
 
-function camTrack()
+camTrackTable = {}
+camTrackTable[1] = function ()
     if camTrackInd > -1 then
         camTrackInd = -1
     else 
         camTrackInd = tracktab[love.math.random(#tracktab)]
     end
 end
+
+camTrackTable[2] = function () end
 
 function newBall()
     local r = math.abs(love.math.randomNormal(10,5))
@@ -145,9 +148,7 @@ function garbageCollect()
     rml = {}
 end
 
-pause = function (dt)
-    
-end
+pause = function (dt) end
 
 run = function (dt)
     if love.math.random(spontFactor) == 1 then newBall() end 
@@ -172,9 +173,15 @@ run = function (dt)
     end
     step()
     framecount = framecount + 1
-
-    if spectatorMode and camTrackInd > -1 and len(lor[camTrackInd].vx,lor[camTrackInd].vy,0,0) > 10 then
+    if camTrackTimeout>-1 and os.clock() - camTrackTimeout >1 then
+        camTrack = camTrackTable[1]
         camTrack()
+        camTrackTimeout = -1
+    end
+    if spectatorMode and camTrackInd > -1 and len(lor[camTrackInd].vx,lor[camTrackInd].vy,0,0) > 7 then
+        camTrack()
+        camTrack = camTrackTable[2]
+        camTrackTimeout = os.clock()
     end
     if not love.window.hasFocus() and not spectatorMode then
         love.update = pause
@@ -211,8 +218,10 @@ function love.load()
     camTrackInd = -1
     rml = {}
     love.update = run
-    spectatorMode = true
 
+    spectatorMode = true
     spontFactor = love.math.random(10)
     bounceFactor = (-1)^love.math.random(2)
+    camTrack = camTrackTable[1]
+    camTrackTimeout = -1
 end
