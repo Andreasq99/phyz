@@ -10,7 +10,9 @@
 7. [Questions](#questions)
 
 ## Description <a name="description"></a>
-A simple n-body physics simulator. Written using the LÖVE API for Lua. I also use this as a background when I stream video games!
+A simple n-body physics simulator. I also use this as a background when I stream video games!
+
+Uses the LOVE API for Lua, and this JSON library: [rxi/json.lua](https://github.com/rxi/json.lua)
 
 ## Installation <a name="installation"></a>
 ### Download Executable   

@@ -5,6 +5,8 @@ function traceBall(ball, tab)
     point.r = ball.r
     point.g = ball.g
     point.b = ball.b
+    point.vx = ball.vx
+    point.vy = ball.vy
     table.insert(tab, point)
     return tab
 end

@@ -1,0 +1,11 @@
+{
+    "G":0.1,
+    "bounceFactor":-0.8,
+    "trackCount":5,
+    "spontFactorCap":2,
+    "spawnCap":10,
+    "spectatorMode":true,
+    "planetSizeMean":5,
+    "planetSizeStdDev":0,
+    "maxPlanets":900
+}

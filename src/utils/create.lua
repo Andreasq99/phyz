@@ -17,8 +17,13 @@ end
 
 function createRect(w)
     rect = {}
-    rect.x = 100 + love.math.random(love.graphics.getWidth()-100)
-    rect.y = 100 + love.math.random(love.graphics.getHeight()-100)
+    -- rect.x = 100 + love.math.random(love.graphics.getWidth()-100)
+    -- rect.y = 100 + love.math.random(love.graphics.getHeight()-100)
+    local angle = math.pi*love.math.random(999)/500
+    local distance = love.math.random(love.graphics.getWidth()-100)
+    rect.x = love.graphics.getWidth()/2+distance*math.cos(angle)
+    rect.y = love.graphics.getHeight()/2+distance*math.sin(angle)
+
     rect.w = w
     -- rect.vx = love.math.random(30)/10
     -- if love.math.random(2) == 1 then rect.vx = -rect.vx end
@@ -29,25 +34,10 @@ function createRect(w)
     rect.r = love.math.random(40)/40
     rect.g = love.math.random(40)/40
     rect.b = love.math.random(40)/40
+    -- rect.r = 0.8
+    -- rect.g = 1
+    -- rect.b = 1
 
 
     return rect
-end
-
-function createFermion()
-    local r = {}
-    if love.math.random(2) == 1 then
-        r = createRect(20)
-        r.p = -1
-        r.g = 0
-        r.r = 0
-        r.b = 1
-    else
-        r = createRect(20)
-        r.p = 1
-        r.g = 0
-        r.r = 1
-        r.b = 0
-    end
-    return r
 end
