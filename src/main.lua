@@ -10,7 +10,7 @@ function love.keypressed(key)
     if key == "escape" then
         love.event.quit()
     elseif key == "return" then
-        love.load()
+        restart()
     elseif key == "l" then
         if trackCount > 0 then camTrack() else camTrackInd = 1 end
     elseif key == "space" then
@@ -45,6 +45,14 @@ camTrackTable[2] = function ()
     camTrackInd = -1
     camTrackTimeout = -1
     camTrack = camTrackTable[1]
+end
+
+function restart()
+    local data = ""
+    data = json.encode({ tracking = (camTrackInd > 0) })
+    io.output("./data.json")
+    io.write(data)
+    love.load()
 end
 
 function newBall()
@@ -214,7 +222,7 @@ run = function (dt)
         secondTimer = os.clock()
     end
 
-    if slideShowMode and os.clock() - slideShowTimer >= 45 then love.load() end
+    if slideShowMode and os.clock() - slideShowTimer >= 45 then restart() end
 end
 
 function love.draw()
@@ -262,6 +270,14 @@ function love.load()
     secondTimer = os.clock()
     
     love.update = run
+    
+    -- io.input("./data.json")
+    -- if json.decode(io.read("*all"))["tracking"] then
+    --     newBall()
+    --     camTrackInd = 1
+    -- else 
+    --     camTrackInd = -1
+    -- end
     
     camTrackInd = -1
     camTrack = camTrackTable[1]
